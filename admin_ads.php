@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once "config.php";
@@ -14,13 +13,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 $upload_err = "";
 $upload_success = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Keep existing upload logic unchanged
+// Handle file upload
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["ad_image"])) {
     $position = $_POST['position'];
     $target_dir = "uploads/ads/";
     $imageFileType = strtolower(pathinfo($_FILES["ad_image"]["name"], PATHINFO_EXTENSION));
     $image_name = time() . "." . $imageFileType;
     $target_file = $target_dir . $image_name;
+
+    // Create directory if it doesn't exist
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
 
     if (move_uploaded_file($_FILES["ad_image"]["tmp_name"], $target_file)) {
         $sql = "INSERT INTO advertisements (position, image_path) VALUES (?, ?)";
@@ -179,9 +183,10 @@ $ads = mysqli_fetch_all($ads_result, MYSQLI_ASSOC);
                                 <img src="<?php echo $ad['image_path']; ?>" alt="Ad Image" class="card-img-top">
                                 <div class="card-body text-center">
                                     <h5 class="card-title">Position <?php echo $ad['position']; ?></h5>
-                                    <form action="delete_ad.php" method="post" onsubmit="return confirm('Are you sure you want to delete this ad?');">
+                                    <form action="deleted_ad.php" method="post" onsubmit="return confirm('Are you sure you want to delete this ad?');">
                                         <input type="hidden" name="ad_id" value="<?php echo $ad['id']; ?>">
-                                        <button type="submit" name="delete_ad" class="btn btn-danger w-100 mt-2">
+                                        <input type="hidden" name="image_path" value="<?php echo $ad['image_path']; ?>">
+                                        <button type="submit" class="btn btn-danger w-100 mt-2">
                                             <i class="bi bi-trash me-2"></i>Delete Ad
                                         </button>
                                     </form>

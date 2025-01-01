@@ -1,0 +1,397 @@
+@font-face {
+    font-family: 'Jameel Noori Nastaliq';
+    src: url('Jameel_Noori_Nastaleeq.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Jameel Noori Nastaliq', serif;
+    direction: rtl;
+}
+
+/* Header */
+.header-container {
+    width: 100%;
+    background-color: #fff;
+}
+
+.header-image-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 200px;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #003D23;
+    padding: 0.5rem 1rem;
+}
+
+.navbar .container {
+    max-width: 1200px;
+}
+
+/* Default styles for larger screens */
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+    padding: 0.5rem 1.2rem !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.nav-item {
+    margin: 0 0.5rem;
+}
+
+/* Main Layout */
+.container {
+    max-width: 1400px;
+    padding: 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Newspaper Content */
+.news-page {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.col-md-8 {
+    flex: 1;
+    width: calc(100vw - 390px);
+    min-width: 0;
+    padding: 0 20px;
+}
+
+.newspaper-page {
+    position: relative;
+    margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+.newspaper-page img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Page Navigation */
+.page-number {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.page-controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.page-controls button {
+    padding: 5px 15px;
+    background-color: #003D23;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.page-controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Side Content (Ads) */
+.side-content {
+    width: 160px;
+    flex-shrink: 0;
+}
+
+.side-column {
+    position: sticky;
+    top: 80px;
+    width: 160px;
+}
+
+.side-content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.side-content .side-content-wrapper img {
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Loading Animation */
+.content-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+}
+
+.loading-indicator {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #003D23;
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Date Picker */
+.date-picker-container {
+    text-align: center;
+    margin: 20px 0;
+    display: none;
+}
+
+.flatpickr-input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Date Info Styles */
+.date-info-container {
+    margin: 15px auto;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+.date-info-wrapper {
+    background: linear-gradient(135deg, #003D23, #006400);
+    border-radius: 15px;
+    padding: 3px;
+    box-shadow: 0 4px 15px rgba(0, 61, 35, 0.2);
+}
+
+.date-info {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.date-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #003D23;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.date-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.date-text {
+    font-size: 1.4rem;
+    color: #003D23;
+    font-weight: bold;
+    margin: 0;
+}
+
+.date-decorative-line {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #003D23, transparent);
+    width: 80%;
+    z-index: 0;
+    opacity: 0.1;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .navbar-expand-md .navbar-nav {
+        display: flex !important;
+        flex-basis: auto;
+    }
+
+    .navbar-expand-md .navbar-collapse {
+        display: flex !important;
+    }
+
+    .navbar-expand-md .navbar-toggler {
+        display: none;
+    }
+}
+
+/* Mobile screen adjustments */
+@media (max-width: 768px) {
+    .navbar .container {
+        display: flex;
+        flex-direction: row; /* Reverse for RTL layout */
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .navbar-brand {
+        margin-right: auto; /* Push to the right in RTL */
+        padding: 0.5rem !important;
+    }
+
+    .navbar-toggler {
+        margin-right: 0; /* Remove default margin */
+        margin-left: auto; /* Push to the left in RTL */
+        order: -1; /* Ensure it's on the left */
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background-color: #003D23;
+        z-index: 1000;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Navigation */
+  
+
+    .nav-item {
+        margin: 5px 0;
+    }
+
+    .navbar-nav {
+        text-align: right;
+    }
+
+    /* Header */
+    .header-image {
+        max-height: 150px;
+    }
+
+    /* Layout */
+    .container {
+        flex-direction: column;
+    }
+
+    .col-md-8 {
+        order: 1;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .side-content {
+        order: 2;
+        width: 100%;
+    }
+
+    /* Ads */
+    .side-column {
+        position: static;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .side-content-wrapper {
+        width: 160px;
+        height: 200px;
+        margin-bottom: 0;
+    }
+
+    .side-content .side-content-wrapper img {
+        height: 200px;
+    }
+
+    /* Date Info */
+    .date-info-container {
+        max-width: 90%;
+    }
+
+    .date-text {
+        font-size: 1.2rem;
+    }
+
+    .date-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-image {
+        max-height: 100px;
+    }
+
+    .col-md-8 {
+        padding: 0 5px;
+    }
+
+    .side-content-wrapper {
+        width: 140px;
+    }
+
+    .date-text {
+        font-size: 1.1rem;
+    }
+
+    .date-icon {
+        width: 30px;
+        height: 30px;
+    }
+}

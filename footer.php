@@ -2,7 +2,7 @@
 
 <footer class="main-footer">
     <div class="footer-content">
-        <div class="container">
+        <div class="containerf">
             <div class="row">
                 <!-- About Section -->
                 <div class="col-lg-7 col-md-7 footer-about">
@@ -85,7 +85,7 @@
 
     <!-- Copyright Section -->
     <div class="footer-bottom">
-        <div class="container">
+        <div class="containerf">
             <div class="row align-items-center">
                 <div class="col-md-4">
                     <div class="editor-info">
@@ -262,7 +262,7 @@
 
     .footer-bottom {
         background: rgba(0, 0, 0, 0.2);
-        padding: 15px 0;
+        padding: 15px 10px;
     }
 
     .editor-info {
